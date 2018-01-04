@@ -6,11 +6,11 @@ class Word_vector:
         self.nov_count = 0
         self.v_size = vector_size
         if vector_size == 200:
-            self.model_file = '/media/zero/41FF48D81730BD9B/DT_RAE/data/words_vector/vector200.pickle'
-            self.extra = '/media/zero/41FF48D81730BD9B/DT_RAE/data/words_vector/extra200.pickle'
+            self.model_file = '../word_vector/vector200.pickle'
+            self.extra = '../word_vector/extra200.pickle'
         else:
-            self.model_file = '/media/zero/41FF48D81730BD9B/DT_RAE/data/words_vector/vector50.pickle'
-            self.extra = '/media/zero/41FF48D81730BD9B/DT_RAE/data/words_vector/extra50.pickle'
+            self.model_file = '../word_vector/msrp_vector50.pickle'
+            self.extra = '../word_vector/extra50.pickle'
 
         self.word_vec = pickle.load(open(self.model_file, 'rb'))
         self.word_vec1 = pickle.load(open(self.extra, 'rb'))
