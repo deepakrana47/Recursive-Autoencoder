@@ -154,11 +154,11 @@ def get_results(score, y_test):
     return tp, tn, fp, fn, acc, f1
 
 def get_msrp_data(stp):
-    train_set = pickle.load(open("/media/zero/41FF48D81730BD9B/DT_RAE/data/MSRP/train/msr_paraphrase_train"+str(stp)+".pickle",'rb'))
-    train_label = pickle.load(open("/media/zero/41FF48D81730BD9B/DT_RAE/data/MSRP/train/msr_paraphrase_trainscore"+str(stp)+".pickle",'rb'))
-    train_sent = pickle.load(open("/media/zero/41FF48D81730BD9B/DT_RAE/data/MSRP/train/msr_paraphrase_trainsent"+str(stp)+".pickle",'rb'))
-    test_set = pickle.load(open("/media/zero/41FF48D81730BD9B/DT_RAE/data/MSRP/test/msr_paraphrase_test"+str(stp)+".pickle",'rb'))
-    test_label = pickle.load(open("/media/zero/41FF48D81730BD9B/DT_RAE/data/MSRP/test/msr_paraphrase_testscore"+str(stp)+".pickle",'rb'))
-    test_sent = pickle.load(open("/media/zero/41FF48D81730BD9B/DT_RAE/data/MSRP/test/msr_paraphrase_testsent"+str(stp)+".pickle",'rb'))
+    train_set = pickle.load(open("./MSRP/train/msr_paraphrase_train"+str(stp)+".pickle",'rb'))
+    train_label = pickle.load(open("./MSRP/train/msr_paraphrase_trainscore"+str(stp)+".pickle",'rb'))
+    train_sent = pickle.load(open("./MSRP/train/msr_paraphrase_trainsent"+str(stp)+".pickle",'rb'))
+    test_set = pickle.load(open("./MSRP/test/msr_paraphrase_test"+str(stp)+".pickle",'rb'))
+    test_label = pickle.load(open("./MSRP/test/msr_paraphrase_testscore"+str(stp)+".pickle",'rb'))
+    test_sent = pickle.load(open("./MSRP/test/msr_paraphrase_testsent"+str(stp)+".pickle",'rb'))
     return train_set, train_label, test_set, test_label
     # return train_set[:100], train_label[:50], train_set[:100], train_label[:50]
