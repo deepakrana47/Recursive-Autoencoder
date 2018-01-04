@@ -55,10 +55,10 @@ class preprocess:
                     count += 1
             wd_extra.append({'w_size': len(words), 'h_vect': h_vect, 'words':words, 'vects': vects, 'wp': wp})
             counts += 1
-            if counts%10000 == 0:
-                print "%d/%d are processed ...." % (len(wd_extra), len(wds))
-        print "%d/%d are processed ...."%(len(wd_extra), len(wds))
-        print "Count of new vectored words :", self.wd_vect.nov_count
+            #if counts%10000 == 0:
+             #   print "%d/%d are processed ...." % (len(wd_extra), len(wds))
+        #print "%d/%d are processed ...."%(len(wd_extra), len(wds))
+        #print "Count of new vectored words :", self.wd_vect.nov_count
         return wd_extra, wpresent
 
     def chk_processing(self, word_data):
