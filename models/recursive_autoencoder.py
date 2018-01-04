@@ -47,14 +47,14 @@ class stack_RAE:
     def predict(self, data):
         vect = data['vects']
         wsize = data['w_size']
-        h={}
+#         h={}
         for j in range(len(data['h_vect'])):
             tx = np.concatenate([vect[k] for k in data['h_vect'][j]], axis=0)
             twe = np.concatenate([self.w['e'][i] for i in data['wp'][j]], axis=1)
             t, _ = self.en_de_coder.encoding(tx, twe, self.b['e'][0])
             vect[wsize + j] = t
-            h[j]=t
-        return h
+#             h[j]=t
+        return vect
 
     def train(self, xs, epoch, batch_size):
         for ep in range(epoch):
