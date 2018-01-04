@@ -75,7 +75,7 @@ def test_fun(var_file, pool_size, num_feature, stp, parse_type):
 
 if __name__ == "__main__":
     var_file = [
-                '/media/zero/41FF48D81730BD9B/DT_RAE/IMPLEMENTATION/weights/2RAE_50_100_0_rmsprop_dep_h_elu_tanh/model_variables.pickle']
+                './weights/model_variables.pickle']
 
     pool_size = 10
     num_feature = [0,1]
