@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
     pool_size = 10
     num_feature = [0,1]
-    stp = [0]
+    stp = [1]
     parsing_type = ['dep']
     for i in range(len(var_file)):
         for nfeat in num_feature:
