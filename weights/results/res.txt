@@ -1,0 +1,32 @@
+
+pool size : 10,	number feature : 0,	 stopword : 1
+	True positive : 1029
+	True negative : 123
+	False positive : 455
+	False negatie : 118
+	accuracy : 0.667826
+	f1 score : 0.782212
+
+pool size : 10,	number feature : 1,	 stopword : 1
+	True positive : 1014
+	True negative : 175
+	False positive : 403
+	False negatie : 133
+	accuracy : 0.689275
+	f1 score : 0.790952
+
+pool size : 10,	number feature : 0,	 stopword : 1
+	True positive : 1016
+	True negative : 131
+	False positive : 447
+	False negatie : 131
+	accuracy : 0.664928
+	f1 score : 0.778544
+
+pool size : 10,	number feature : 1,	 stopword : 1
+	True positive : 1003
+	True negative : 182
+	False positive : 396
+	False negatie : 144
+	accuracy : 0.686957
+	f1 score : 0.787903

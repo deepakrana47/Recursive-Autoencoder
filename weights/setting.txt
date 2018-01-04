@@ -1,0 +1,17 @@
+
+
+Trainning Parameter:
+ neta : 0.001000 
+ word vector size :50 
+ pharse vector size :50 
+ batch size :100 
+ optimization method :rmsprop 
+ model :RAE 
+ Stopword :1 
+ parse-type :dep 
+ type :h 
+ epoch :5 
+ Input flag :d 
+ Input file : 
+ loaded model file : 
+ save model file :/media/zero/41FF48D81730BD9B/DT_RAE/IMPLEMENTATION/weights/RAE_50_50_1_rmsprop_dep_h_elu_tanh
