@@ -48,3 +48,7 @@ E.g.:
 > 	('get descrambling security card cable operator plug set', 'pay television consumers') :		1.17636987178
 
 > 	('consumers still have get descrambling security card cable operator plug set', 'watch pay television consumers') :		1.1848175183
+
+Things to Note: should provide word vector file at: 
+
+>> modelFile = '/media/zero/41FF48D81730BD9B/DT_RAE/data/word_embeddings/50/wiki_word50.vector.pickle'
