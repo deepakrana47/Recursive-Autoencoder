@@ -111,8 +111,8 @@ def similarity_matrix(x1, x2):
             s_matrix[i, j] = np.linalg.norm(x1[i]-x2[j])
     s_min = {}
     for i in x1:
-        # s_min[(x1[i], x2[np.argmin(s_matrix[i,])])] = np.amin(s_matrix[i,])
-        s_min[i] = np.amin(s_matrix[i,])
+        s_min[(i, np.argmin(s_matrix[i,]))] = np.amin(s_matrix[i,])
+        # s_min[i] = np.amin(s_matrix[i,])
     return s_min, s_matrix
 
 def mini_batch(data, data_size, batch_size):
@@ -162,3 +162,40 @@ def get_msrp_data(stp):
     test_sent = pickle.load(open("./MSRP/test/msr_paraphrase_testsent"+str(stp)+".pickle",'rb'))
     return train_set, train_label, test_set, test_label
     # return train_set[:100], train_label[:50], train_set[:100], train_label[:50]
+
+def generate_fixed_vector(nn, x, nfeat, pool_size):
+    o = []
+    for i in range(0, len(x), 2):
+        temp1 = nn.predict(x[i])
+        temp2 = nn.predict(x[i+1])
+        _, s = similarity_matrix(temp1, temp2)
+        if nfeat == 1:
+            feat = get_n_feature(' '.join([x[i]['words'][j] for j in x[i]['words']]), ' '.join([x[i+1]['words'][j] for j in x[i+1]['words']]))
+            o.append(np.concatenate((dynamic_pooling(s, pool_size=pool_size, pf=min).reshape(pool_size * pool_size), feat)))
+        else:
+            o.append(dynamic_pooling(s, pool_size=pool_size, pf=min).reshape(pool_size * pool_size))
+    return o
+
+def generate_fixed_vector2(nn, x, nfeat, pool_size):
+    o = []
+    temp1 = nn.predict(x[0])
+    temp2 = nn.predict(x[1])
+    smin, s = similarity_matrix(temp1, temp2)
+    if nfeat == 1:
+        feat = get_n_feature(' '.join([x[0]['words'][j] for j in x[0]['words']]), ' '.join([x[1]['words'][j] for j in x[1]['words']]))
+        o.append(np.concatenate((dynamic_pooling(s, pool_size=pool_size, pf=min).reshape(pool_size * pool_size), feat)))
+    else:
+        o.append(dynamic_pooling(s, pool_size=pool_size, pf=min).reshape(pool_size * pool_size))
+
+    phrase = []
+    for i in range(len(x)):
+        words = x[i]['words']
+        h_vect = x[i]['h_vect']
+        phrase.append({k:words[k] for k in words})
+        for j in range(len(h_vect)):
+            phrase[i][x[i]['w_size']+j] = ' '.join([phrase[i][k] for k in h_vect[j]])
+    temp = {}
+    for i in smin:
+        if i[0] >= x[0]['w_size']:
+            temp[i[0]]=((phrase[0][i[0]], phrase[1][i[1]]), smin[i])
+    return o, temp

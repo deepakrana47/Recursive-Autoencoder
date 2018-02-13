@@ -2,15 +2,18 @@ import pickle, numpy as np
 
 class Word_vector:
 
-    def __init__(self, vector_size):
+    def __init__(self, vector_size, test=0, model_file=None):
         self.nov_count = 0
         self.v_size = vector_size
-        if vector_size == 200:
+        if test:
+            if model_file: self.model_file = model_file
+            else: print "provide a Word vector files !!!!!"; exit()
+        elif vector_size == 200:
             self.model_file = '../word_vectors/vector200.pickle'
             self.extra = '../word_vectors/extra200.pickle'
         else:
-            self.model_file = '../word_vectors/msrp_vector50.pickle'
-            self.extra = '../word_vectors/extra50.pickle'
+            self.model_file = 'word_vectors/msrp_vector50.pickle'
+            self.extra = 'word_vectors/extra50.pickle'
 
         self.word_vec = pickle.load(open(self.model_file, 'rb'))
         self.word_vec1 = pickle.load(open(self.extra, 'rb'))

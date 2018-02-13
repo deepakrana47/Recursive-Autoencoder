@@ -1,4 +1,6 @@
 import re, random
+import utility
+from util.text_process import line_processing
 
 class preprocess:
 
@@ -285,6 +287,10 @@ class preprocess:
                 wd.pop(i)
         return wd
 
+    def sentProcess(self, sentence):
+        sentence = line_processing(sentence)
+        feature = utility.extract_feature_using_senna(sentence)
+        return self.process_words_data([feature])[0]
 
 def pdep_2_deporder_dep(p,d):
     '''
